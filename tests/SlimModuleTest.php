@@ -5,6 +5,7 @@ namespace Tests;
 use DI\Bridge\Slim\ControllerInvoker;
 use DI\ContainerBuilder;
 use Invoker\CallableResolver as InvokerCallableResolver;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Psr\Http\Server\RequestHandlerInterface;
 use Sicet7\Base\Psr17\Module as Psr17Module;
@@ -19,6 +20,7 @@ use Slim\Interfaces\InvocationStrategyInterface;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Routing\RouteCollector;
 
+#[CoversClass(SlimModule::class)]
 final class SlimModuleTest extends ContainerTestCase
 {
     /**
