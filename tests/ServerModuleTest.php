@@ -6,7 +6,7 @@ use DI\ContainerBuilder;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Sicet7\Base\Psr17\Module as Psr17Module;
-use Sicet7\Base\Server\HttpServer;
+use Sicet7\Base\Server\HttpWorker;
 use Sicet7\Base\Server\Module as ServerModule;
 use Sicet7\Base\Server\WorkerParams;
 use Sicet7\Base\Slim\Module as SlimModule;
@@ -54,7 +54,7 @@ final class ServerModuleTest extends ContainerTestCase
             RoadRunnerWorker::class,
             PSR7Worker::class,
             PSR7WorkerInterface::class,
-            HttpServer::class,
+            HttpWorker::class,
         ]);
     }
 }

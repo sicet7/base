@@ -14,7 +14,7 @@ use Sicet7\Base\Server\Events\TerminateWorker;
 use Sicet7\Base\Server\Events\UnhandledException;
 use Spiral\RoadRunner\Http\PSR7WorkerInterface;
 
-final readonly class HttpServer
+final readonly class HttpWorker
 {
     public function __construct(
         private RequestHandlerInterface $requestHandler,

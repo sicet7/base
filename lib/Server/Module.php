@@ -62,12 +62,12 @@ final class Module implements ModuleInterface
                     get(UploadedFileFactoryInterface::class),
                 ),
             PSR7WorkerInterface::class => get(PSR7Worker::class),
-            HttpServer::class => function(
+            HttpWorker::class => function(
                 RequestHandlerInterface $requestHandler,
                 PSR7WorkerInterface $PSR7Worker,
                 ResponseFactoryInterface $responseFactory,
                 ContainerInterface $container
-            ): HttpServer {
+            ): HttpWorker {
                 $logger = null;
                 $eventDispatcher = null;
                 if ($container->has(LoggerInterface::class)) {
@@ -76,7 +76,7 @@ final class Module implements ModuleInterface
                 if ($container->has(EventDispatcherInterface::class)) {
                     $eventDispatcher = $container->get(EventDispatcherInterface::class);
                 }
-                return new HttpServer(
+                return new HttpWorker(
                     $requestHandler,
                     $PSR7Worker,
                     $responseFactory,
