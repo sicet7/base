@@ -36,6 +36,8 @@
         "nyholm/psr7": "^1.5",
         "doctrine/orm": "^2.14",
         "doctrine/migrations": "^3.6",
+        "symfony/psr-http-message-bridge": "^2.1",
+        "symfony/http-foundation": "^6.2",
         "symfony/cache": "^6.2"
     },
     "require-dev": {

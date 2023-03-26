@@ -4,12 +4,13 @@ namespace Tests;
 
 use DI\ContainerBuilder;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DependsExternal;
 use PHPUnit\Framework\Attributes\Test;
 use Sicet7\Base\Psr17\Module as Psr17Module;
 use Sicet7\Base\Server\HttpWorker;
 use Sicet7\Base\Server\Module as ServerModule;
 use Sicet7\Base\Server\WorkerParams;
-use Sicet7\Base\Slim\Module as SlimModule;
+use Sicet7\Base\Http\Module as SlimModule;
 use Spiral\Goridge\RelayInterface;
 use Spiral\Goridge\RPC\RPCInterface;
 use Spiral\RoadRunner\Environment;
@@ -43,6 +44,8 @@ final class ServerModuleTest extends ContainerTestCase
     }
 
     #[Test]
+    #[DependsExternal(Psr17ModuleTest::class, 'canGetAllRegistrations')]
+    #[DependsExternal(HttpModuleTest::class, 'canGetAllRegistrations')]
     public function canGetAllRegistrations(): void
     {
         $this->checkRegistrations([
