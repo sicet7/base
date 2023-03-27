@@ -1,19 +1,19 @@
 <?php
 
-namespace Sicet7\Base\Http\Attributes\Routing;
+namespace Sicet7\Base\Attributes\Routing;
 
 use Attribute;
-use Sicet7\Base\Http\Enums\Method;
+use Sicet7\Base\Enums\Method;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_METHOD | Attribute::IS_REPEATABLE)]
-final class Patch extends Route
+final class Post extends Route
 {
     /**
-     * Patch constructor.
+     * Post constructor.
      * @param string $pattern
      */
     public function __construct(string $pattern)
     {
-        parent::__construct($pattern, Method::PATCH);
+        parent::__construct($pattern, Method::POST);
     }
 }

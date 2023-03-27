@@ -1,6 +1,6 @@
 <?php
 
-namespace Sicet7\Base\Http\Enums;
+namespace Sicet7\Base\Enums;
 
 enum Method: string
 {

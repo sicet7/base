@@ -1,6 +1,6 @@
 <?php
 
-namespace Sicet7\Base\Http\Attributes;
+namespace Sicet7\Base\Attributes;
 
 use Attribute;
 

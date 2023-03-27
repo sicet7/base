@@ -1,6 +1,6 @@
 <?php
 
-namespace Sicet7\Base\Http\Factories;
+namespace Sicet7\Base\Factories;
 
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory as SymfonyToPsrHttpFactory;

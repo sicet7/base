@@ -1,15 +1,13 @@
 <?php
 
-namespace Sicet7\Base\Http\Collectors;
+namespace Sicet7\Base;
 
 use Psr\Http\Server\MiddlewareInterface;
-use Sicet7\Base\Http\Attributes\Controller;
-use Sicet7\Base\Http\Attributes\Middleware;
-use Sicet7\Base\Http\Attributes\Routing\Route;
+use Sicet7\Base\Attributes\Controller;
+use Sicet7\Base\Attributes\Middleware;
+use Sicet7\Base\Attributes\Routing\Route;
 use Slim\Interfaces\RouteCollectorInterface;
 use Slim\Interfaces\RouteCollectorProxyInterface;
-use Slim\Interfaces\RouteGroupInterface;
-use Slim\Interfaces\RouteInterface;
 use Slim\Routing\RouteCollector;
 
 final class AttributeRouteCollector extends RouteCollector
@@ -47,7 +45,9 @@ final class AttributeRouteCollector extends RouteCollector
                     }
                 }
             );
-            self::addMiddlewares($group, $groupMiddlewares);
+            foreach ($groupMiddlewares as $middleware) {
+                $group->add($middleware);
+            }
         }
     }
 
@@ -81,7 +81,9 @@ final class AttributeRouteCollector extends RouteCollector
                 $routeAttributeInstance->pattern,
                 $target
             );
-            self::addMiddlewares($route, $middlewares);
+            foreach ($middlewares as $middleware) {
+                $route->add($middleware);
+            }
         }
     }
 
@@ -110,19 +112,5 @@ final class AttributeRouteCollector extends RouteCollector
             $middlewares[] = $middlewareAttribute->newInstance();
         }
         return $middlewares;
-    }
-
-    /**
-     * @param RouteInterface|RouteGroupInterface $target
-     * @param array $middlewares
-     * @return void
-     */
-    private static function addMiddlewares(
-        RouteInterface|RouteGroupInterface $target,
-        array $middlewares
-    ): void {
-        foreach ($middlewares as $middleware) {
-            $target->add($middleware);
-        }
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
-namespace Sicet7\Base\Database;
+namespace Sicet7\Base;
 
-use Composer\InstalledVersions;
 use Symfony\Component\Console\Application;
 
 final class Migrator extends Application
